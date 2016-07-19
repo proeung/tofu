@@ -1,0 +1,60 @@
+/********************
+** Reponsive Container
+********************/
+
+#page {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1700px;
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  zoom: 1;
+  background-color: $c-white;
+}
+
+#content {
+  position: relative;
+}
+
+.l-container-sm, .l-container-md, .l-container-lg, .l-container-xlg {
+  width: 89%;
+  height: auto;
+  margin: 0 auto;
+  @include bp(small) {
+    width: 90.5%;
+  }
+  @include bp(medium) {
+    width: 94%;
+  }
+}
+
+.l-container-sm {
+  max-width: 860px;
+}
+
+.l-container-md {
+  max-width: 1080px;
+}
+
+.l-container-lg {
+  max-width: 1300px;
+}
+
+.l-container-xlg {
+  max-width: 1700px;
+}
+
+.padding-tb-sm {
+  padding: 45px 0;
+}
+
+.padding-tb-lg {
+  padding: 100px 0;
+}
+
+.margin-tb-sm {
+  margin: 45px 0;
+}

@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:hover { }
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  line-height: $baseLineHeight;
+  font-family: $f-base;
+  @include font-size($baseFontSize);
+  color: $c-text;
+  background: $c-grey;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  -moz-user-drag: -moz-none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+a {
+  text-decoration: none;
+  color: $c-secondary;
+  font-weight: 600;
+  transition: color 400ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  &:hover {
+    color: $c-primary;
+  }
+  &:visited {
+    color: $c-secondary;
+  }
+}
+
+figure {
+  position: relative;
+  margin: 0 0;
+}
+
+p {
+  line-height: $baseLineHeight;
+}
+
+p + p {
+  margin-top: 1.5em;
+}
+
+dl, ol, ul {
+  margin-bottom: $baseLineHeight;
+}
+
+ul, ol {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+li ul, li ol {
+  margin: 0;
+}
+
+select, textarea,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type="submit"] {
+  display: block;
+  border-radius: 0;
+  @include ui-appearance(none);
+}
+
+@include headers() {
+  display: block;
+  font-weight: normal;
+}
+
+/********************
+** Typography
+********************/
+
+h1, h2, h3, h5 {
+}
+
+h1 {
+  margin: 0 0;
+}

@@ -1,0 +1,51 @@
+<div id="page" role="document">
+
+  {% include directory ~ '/templates/includes/header.html.twig' %}
+
+  {%  if page.featured %}
+    <section id="featured">
+      {{ page.featured }}
+    </section>
+  {% endif %}
+
+  {% if page.breadcrumb %}
+    <section id="breadcrumb">
+      <div class="l-container-xlg">
+        {{ page.breadcrumb }}
+      </div>
+    </section>
+  {% endif %}
+
+  {%  if page.admin_tabs %}
+    <section id="admin-tabs" class="l-container-md">
+      {{ page.admin_tabs }}
+    </section>
+  {% endif %}
+
+  {% if messages %}
+    <section id="messages" class="l-container-md">
+      {{ messages }}
+    </section>
+  {% endif %}
+
+  <main role="main" class="l-container-xlg">
+    {% if page.sidebar_first %}
+      <aside id="sidebar-first" role="complementary" class="sidebar">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    <section id="content">
+      {{ page.content }}
+    </section>
+
+    {% if page.sidebar_second %}
+      <aside id="sidebar-second" role="complementary" class="sidebar">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+  </main>
+
+</div>
+
+{% include directory ~ '/templates/includes/footer.html.twig' %}

@@ -1,0 +1,36 @@
+name: Tofu
+type: theme
+description: A starter theme for Drupal 8
+base theme: stable
+
+libraries:
+  - tofu/global-css
+  - tofu/global-js
+
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+
+regions:
+  header: Header
+  primary_menu: 'Primary Menu'
+  utility_menu: 'Utility Menu'
+  help: Help
+  page_top: 'Page Top'
+  page_bottom: 'Page Bottom'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  featured: 'Featured'
+  admin_tabs: 'Admin Tabs'
+  content: 'Content'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer: 'Footer'
+
+# Information added by Drupal.org packaging script on 2016-03-18
+version: '8.x-1.0'
+core: '8.x'
+project: 'tofu'
+datestamp: 1458310539

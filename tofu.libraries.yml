@@ -1,0 +1,15 @@
+global-css:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+global-js:
+  version: VERSION
+  js:
+    js/vendor/modernizr.min.js: {}
+    js/vendor/jquery.min.js: {}
+    js/vendor/plugins.min.js: {}
+    js/functionality.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

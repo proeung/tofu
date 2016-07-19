@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Include theme for header
+ *
+ */
+#}
+
+{%  if page.header or page.utility_menu or page.primary_menu %}
+  <header id="header" class="padding-tb-sm">
+    <div class="l-container-lg cf">
+
+      {%  if page.header %}
+        <div class="col-left col-quarter">
+          {{ page.header }}
+        </div>
+      {% endif %}
+
+      {%  if page.utility_menu or page.primary_menu %}
+        <div class="col-right col-three-fourths">
+          {{ page.utility_menu }}
+          {{ page.primary_menu }}
+        </div>
+      {% endif %}
+
+
+    </div>
+  </header>
+{% endif %}

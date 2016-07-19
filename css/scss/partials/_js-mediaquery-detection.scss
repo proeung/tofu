@@ -1,0 +1,26 @@
+#js-mediaQueryReference {
+  position: absolute;
+  top: -50px;
+  width: 0;
+  transition: width .001s;
+
+  @include bp(small) {
+    width: 50px;
+  }
+
+  @include bp(medium) {
+    width: 100px;
+  }
+
+  &:after {
+    content: "mobile";
+
+    @include bp(small) {
+      content: "tablet";
+    }
+    @include bp(medium) {
+      content: "desktop";
+    }
+  }
+
+}

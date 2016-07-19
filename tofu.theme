@@ -1,0 +1,81 @@
+<?php
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_html_head_alter().
+ */
+function tofu_html_head_alter(&$head_elements) {
+  // HTML5 charset declaration.
+  $head_elements['system_meta_content_type']['#attributes'] = array(
+    'charset' => 'utf-8',
+  );
+
+  // Optimize mobile viewport.
+  $head_elements['mobile_viewport'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1',
+    ),
+  );
+}
+
+/**
+ * Implements template_preprocess_html().
+ * @param array $variables
+ */
+function tofu_preprocess_html(&$variables) {
+  if (!empty($variables['page']['sidebar_first'])) {
+    $sidebar_left = $variables['page']['sidebar_first'];
+  }
+
+  if (!empty($variables['page']['sidebar_second'])) {
+    $sidebar_right = $variables['page']['sidebar_second'];
+  }
+
+  // Dynamic sidebars.
+  if (!empty($sidebar_left) && !empty($sidebar_right)) {
+    $variables['attributes']['class'][] = 'two-sidebars';
+  }
+  elseif (empty($sidebar_left) && !empty($sidebar_right)) {
+    $variables['attributes']['class'][] = 'one-sidebar';
+    $variables['attributes']['class'][] = 'sidebar-second';
+  }
+  elseif (!empty($sidebar_left) && empty($sidebar_right)) {
+    $variables['attributes']['class'][] = 'one-sidebar';
+    $variables['attributes']['class'][] = 'sidebar-first';
+  }
+  else {
+    $variables['attributes']['class'][] = 'no-sidebars';
+  }
+}
+
+/**
+ * Implements template_preprocess_page.
+ * @param array $variables
+ */
+function tofu_preprocess_page(&$variables) {
+  $site_name = \Drupal::configFactory()->get('system.site')->get('name');
+  $variables['linked_site_name'] = ['#type' => 'link', '#title' => $site_name, '#url' => Url::fromRoute('<front>')];
+}
+
+/**
+ * Implements template_preprocess_node.
+ * @param array $variables
+ */
+function tofu_preprocess_node(&$variables) {
+  
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function tofu_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__type_'.$content_type;
+  }
+}

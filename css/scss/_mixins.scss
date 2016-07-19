@@ -1,0 +1,179 @@
+@mixin bp($point) {
+  @if ($MQs) {
+    @if $point == small {
+      @media #{$mq-small} { @content; }
+    }
+    @else if $point == medium {
+      @media #{$mq-medium} { @content; }
+    }
+    @else if $point == large {
+      @media #{$mq-large}  { @content; }
+    }
+    @else if $point == xlarge {
+      @media #{$mq-xlarge}  { @content; }
+    }
+    @else if $point == retina {
+      @media #{$mq-retina}  { @content; }
+    }
+  }
+  @else {
+    @if $point != retina {
+      @content;
+    }
+  }
+}
+
+@mixin bp-max($point) {
+  @if $point == small {
+     @media (max-width: ($bp-small - 1px)) { @content; }
+  }
+  @else if $point == medium {
+     @media (max-width: ($bp-medium - 1px)) { @content; }
+  }
+  @else if $point == large {
+     @media (max-width: ($bp-large - 1px)) { @content; }
+  }
+}
+
+//Arbitrary Media Query Mixin
+@mixin bp-arb($val) {
+  @if ($MQs) {
+    @media only screen and (min-width: #{$val}px) { @content }
+  }
+}
+
+@mixin font-size($pixelSize: $baseFontSize) {
+  font-size: #{$pixelSize}px;
+  font-size: #{$pixelSize / $baseFontSize}rem;
+}
+
+@mixin line-height($pixelSize) {
+  line-height: #{$pixelSize}px;
+  line-height: #{$pixelSize / 16}rem;
+}
+
+@mixin letter-spacing($psVal) {//converts photoshop tracking into letter spacing
+    letter-spacing: #{$psVal / 1000}em;
+}
+
+@mixin headers() {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    @content
+  }
+}
+
+@mixin placeholder() {
+  ::-webkit-input-placeholder { @content }
+  :-moz-placeholder           { @content }
+  ::-moz-placeholder          { @content }
+  :-ms-input-placeholder      { @content }
+}
+
+@mixin transform($transform) {
+  -webkit-transform:  $transform;
+  -moz-transform:   $transform;
+  -ms-transform:    $transform;
+  -o-transform:     $transform;
+  transform:      $transform;
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+  -moz-transition:  $property;
+  -ms-transition:   $property;
+  -o-transition:    $property;
+  transition:     $property;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation($animation) {
+  -webkit-animation: #{$animation};
+  -ms-animation: #{$animation};
+  -moz-animation: #{$animation};
+  animation: #{$animation};
+}
+
+@mixin animation-delay($animation-delay) {
+  -webkit-animation-delay: #{$animation-delay};
+  -ms-animation-delay: #{$animation-delay};
+  -moz-animation-delay: #{$animation-delay};
+  animation-delay: #{$animation-delay};
+}
+
+@mixin aspect-ratio($width, $height) {
+  padding-bottom: ($height / $width) * 100%;
+}
+
+@mixin flex{
+  display: -webkit-flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-flex;
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;
+}
+
+@mixin flex-item($flex:1){
+  -webkit-box-flex: $flex;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $flex;         /* OLD - Firefox 19- */
+  -webkit-flex: $flex;          /* Chrome */
+  -ms-flex: $flex;              /* IE 10 */
+  flex: $flex;
+}
+
+@mixin linear-gradient($colStart, $colEnd) {
+  background:     -webkit-gradient(linear, left top, left bottom, from($colStart), to($colEnd)) 0 0;
+  background:     -moz-linear-gradient(top, $colStart, $colEnd) 0 0;
+  background:     -ms-linear-gradient(top, $colStart, $colEnd);
+  background:     -o-linear-gradient(top, $colStart, $colEnd);
+  background:     linear-gradient($colStart, $colEnd);
+}
+
+@mixin ui-appearance($value){
+  -webkit-appearance: $value;
+  -moz-appearance:    $value;
+  appearance:         $value;
+}
+@mixin ie-9() {
+  @media screen and (min-width:0) and (min-resolution: .001dpcm) { @content; }
+}
+@mixin ie-10-11() {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+}
+
+@mixin ie-edge() {
+  @supports (-ms-accelerator:true) { @content; }
+  _:-ms-lang(x) { @content; }
+}
+
+@mixin safari {
+  @supports (overflow:-webkit-marquee) and (justify-content:inherit) { @content; }
+}
+
+@mixin no-user-select(){
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

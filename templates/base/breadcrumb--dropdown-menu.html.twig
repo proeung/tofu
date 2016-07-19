@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if breadcrumb %}
+  <nav class="breadcrumb-dropdown-menu" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <ol>
+    {% for item in breadcrumb %}
+      <li {{ item.attributes }}>
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+        {% if item.drop_down %}
+          <ul>
+          {% for item_drop_down in item.drop_down %}
+            <li>
+              {% if item_drop_down.url %}
+                <a href="{{ item_drop_down.url }}">{{ item_drop_down.text }}</a>
+              {% else %}
+                {{ item_drop_down.text }}
+              {% endif %}
+            </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

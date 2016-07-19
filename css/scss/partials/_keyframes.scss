@@ -1,0 +1,151 @@
+@include keyframes(fadeInUp) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, 100%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+@include keyframes(fadeInUpHalf) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, 100px, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+
+@include keyframes(fadeinFromSide) {
+  0% {
+    opacity: 0;
+    @include transform(translate(100%, -50%));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(translate(0%, -50%));
+  }
+}
+
+@include keyframes(fadeOutToSide) {
+  0% {
+    opacity: 1;
+   @include transform(translate(0%, -50%));
+  }
+
+  100% {
+    opacity: 0;
+    @include transform(translate(100%, -50%));
+  }
+}
+
+@include keyframes(fadeInDown) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, -100%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+@include keyframes(fadeInDownHalf) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, -50px, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+@include keyframes(menuDropdown) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, -15px, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+@include keyframes(menuArrow) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, 15px, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform( none );
+  }
+}
+
+@include keyframes(fadeInDownCenter) {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(-50%, -100%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(translate3d(-50%, 0, 0));
+  }
+}
+
+@include keyframes(fadeIn) {
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(fadeOut) {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(scaleAndFadeIn) {
+  0% {
+    opacity: 0;
+    @include transform(scale(0));
+  }
+  100% {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes(fadeInLine) {
+  0% {
+    opacity: 0;
+    height: 0;
+    top: 50%;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    top: 0;
+  }
+}

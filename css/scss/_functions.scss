@@ -1,0 +1,7 @@
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+
+$animStep: 100% / 27;
+//set steps for keyframe animations
+@function setStep($n) { @return $n * ($animStep) }
