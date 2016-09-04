@@ -4,8 +4,20 @@
 INSTALLATION
 ------------
 
-Gulp is required to manage assets.
+1. Setup the location for your new starter-theme.
 
-First, you will need to install NodeJS.
+2. Rename "Tofu" with to include the name of your new starter-theme.
 
-Install gulp and bower with 'npm install -g gulp bower' from the command line. On some setups, sudo may be required.
+3. Setup the basic information for your starter-theme.
+
+4. Edit your starter-theme to use the proper function names.
+
+5. Gulp is required to manage assets.
+
+6. First, you will need to install NodeJS.
+
+7. Install gulp with 'npm install -g gulp' from the command line. On some setups, sudo may be required.
+
+8. Run 'npm install' in your theme directory
+
+9. Set your website's default theme.

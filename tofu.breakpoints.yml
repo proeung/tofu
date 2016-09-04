@@ -1,0 +1,18 @@
+tofu.narrow:
+  label: narrow
+  mediaQuery: '(min-width: 16.5em)'
+  weight: 0
+  multipliers:
+    - 1x
+tofu.standard:
+  label: standard
+  mediaQuery: 'screen and (min-width: 40em)'
+  weight: 1
+  multipliers:
+    - 1x
+tofu.wide:
+  label: wide
+  mediaQuery: 'screen and (min-width: 61em)'
+  weight: 2
+  multipliers:
+    - 1x
