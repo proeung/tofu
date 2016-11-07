@@ -16,13 +16,13 @@
     </section>
   {% endif %}
 
-  {%  if page.admin_tabs %}
+  {% if logged_in and page.admin_tabs %}
     <section id="admin-tabs" class="l-container-md">
       {{ page.admin_tabs }}
     </section>
   {% endif %}
 
-  {% if messages %}
+  {% if logged_in and page.messages %}
     <section id="messages" class="l-container-md">
       {{ messages }}
     </section>
