@@ -1,8 +1,12 @@
 ![alt tag](https://github.com/proeung/tofu/blob/master/screenshot.png?raw=true)
 
-#Drupal 8 Starter Theme - Tofu#
+#Tofu - Drupal 8 Starter Theme#
 
-###Installation###
+Tofu is a Drupal 8 starter theme designed to keep things simple while providing template suggestion files and useful preprocess functions for your project. This is a theme that is not meant use as a parent theme, however, feel free to remove or add components to fit your needs.
+
+***
+
+##Installation##
 
 1. Setup the location for your new starter-theme (eg. /themes).
 
@@ -21,5 +25,3 @@
 8. Run `npm install` in your theme directory
 
 9. Set your website's default theme.
-
-***
