@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Implements hook_html_head_alter().
@@ -21,6 +23,23 @@ function tofu_html_head_alter(&$head_elements) {
     ),
   );
 }
+
+/**
+ * Implements template_preprocess_().
+ * @param array $variables
+ */
+function tofu_preprocess(&$variables, $hook) {
+  global $base_url;
+  $variables['base_url'] = $base_url;
+
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    $variables['is_front'] = FALSE;
+  }
+}
+
 
 /**
  * Implements template_preprocess_html().
@@ -70,13 +89,25 @@ function tofu_preprocess_node(&$variables) {
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter().
+ * Implements hook_theme_suggestions_HOOK_alter(). eg page--type-machine_name.html.twig
  */
 function tofu_theme_suggestions_page_alter(array &$suggestions, array $variables) {
 
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $content_type = $node->bundle();
     $suggestions[] = 'page__type_'.$content_type;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter.
+ * @param array $variables
+ */
+function tofu_theme_suggestions_block_alter(&$suggestions, $variables) {
+  $content = $variables['elements']['content'];
+  if (isset($content['#block_content']) && $content['#block_content'] instanceof \Drupal\block_content\BlockContentInterface) {
+    $bundle = $content['#block_content']->bundle();
+    $suggestions[] = 'block__' . $bundle;
   }
 }
 
@@ -88,7 +119,7 @@ function tofu_theme_suggestions_page_alter(array &$suggestions, array $variables
 function tofu_preprocess_image(&$variables) {
   if (!empty($variables['uri'])) {
     $variables['attributes']['class'] = 'b-lazy';
-    $variables['attributes']['src'] = file_create_url(drupal_get_path('theme', 'tofu') . '/images/loaders/placeholder.gif');
+    $variables['attributes']['src'] = '/' . drupal_get_path('theme','tofu') . '/images/loaders/placeholder.gif';
     $variables['attributes']['data-src'] = file_url_transform_relative(file_create_url($variables['uri']));
   }
   // Generate a srcset attribute conforming to the spec at
@@ -119,4 +150,11 @@ function tofu_preprocess_image(&$variables) {
       $variables['attributes'][$key] = $variables[$key];
     }
   }
+}
+
+/**
+ * Implements form_alter.
+ * @param array $variables
+ */
+function tofu_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
 }
