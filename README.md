@@ -4,7 +4,6 @@
 
 Tofu is a Drupal 8 starter theme designed to keep things simple while providing template suggestion files and useful preprocess functions for your project. This is a theme that is not meant use as a parent theme, however, feel free to remove or add components to fit your needs.
 
-***
 
 ##Installation##
 
