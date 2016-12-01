@@ -91,7 +91,7 @@
     });
 
     //To understand behaviors, see https://drupal.org/node/756722#behaviors
-    Drupal.behaviors.nasm_behavior = {
+    Drupal.behaviors.tofu_behavior = {
         attach: function(context, settings) {
             initBLazy();
     

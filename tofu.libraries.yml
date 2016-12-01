@@ -1,14 +1,15 @@
 global-css:
-  version: VERSION
+  version: 1.0
   css:
     theme:
       css/style.css: {}
+      css/ie.css: { browsers: { IE: 'lte IE 9', '!IE': false } }
 global-js:
-  version: VERSION
+  version: 1.0
   js:
-    js/vendor/modernizr.min.js: {}
+    js/vendor/modernizr.min.js: { weight: -10 }
     js/vendor/plugins.min.js: {}
     js/functionality.js: {}
   dependencies:
+    - core/jquery
     - core/drupal
-    - core/drupalSettings
