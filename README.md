@@ -2,12 +2,12 @@
 
 #Tofu - Drupal 8 Starter Theme#
 
-Tofu is a Drupal 8 starter theme designed to keep things simple while providing template suggestion files and useful preprocess functions for your project. This is a theme that is not meant use as a parent theme, however, feel free to remove or add components to fit your needs.
+Tofu is a Drupal 8 starter theme designed to keep things simple while providing template suggestion files and useful preprocess functions for your project. This is a theme that is not meant to use as a parent theme, however, feel free to remove or add components to fit your needs.
 
 
 ##Installation##
 
-1. Setup the location for your new starter-theme (eg. /themes).
+1. Setup the location for your new starter-theme (eg. `/themes`).
 
 2. Find and replace the word "Tofu" with the desired name of your new starter theme.
 
@@ -21,6 +21,8 @@ Tofu is a Drupal 8 starter theme designed to keep things simple while providing 
 
 7. Install gulp with `npm install -g gulp` from the command line. On some setups, sudo may be required.
 
-8. Run `npm install` in your theme directory
+8. Run `npm install` in your theme directory.
 
-9. Set your website's default theme.
+9. Run `gulp` to compiled and watch your JS/CSS changes.
+
+10. Set your website's default theme.
