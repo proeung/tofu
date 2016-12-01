@@ -1,3 +1,5 @@
+![alt tag](https://github.com/proeung/tofu/blob/master/screenshot.png?raw=true)
+
 ##Drupal 8 Starter Theme##
 
 
