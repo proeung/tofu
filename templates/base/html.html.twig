@@ -44,9 +44,21 @@
 <head>
   <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    
     <css-placeholder token="{{ placeholder_token }}">
 </head>
-<body{{ attributes }}>
+
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+  ]
+%}
+
+<body{{ attributes.addClass(body_classes) }}>
   <a tab-index="-1" class="element-invisible element-focusable bg-grey u-centered-text" href="#main">
     <h2>{{ 'Skip to Main Content'|t }}</h2>
   </a>
