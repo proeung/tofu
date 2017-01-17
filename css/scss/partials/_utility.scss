@@ -4,11 +4,14 @@
 
 .element-invisible {
   position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
+}
+
+.element-invisible.element-focusable:active,
+.element-invisible.element-focusable:focus {
+  position: static !important;
+  clip: auto;
 }
 
 .u-centered-text {

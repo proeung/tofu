@@ -47,6 +47,10 @@
     <css-placeholder token="{{ placeholder_token }}">
 </head>
 <body{{ attributes }}>
+  <a tab-index="-1" class="element-invisible element-focusable bg-grey u-centered-text" href="#main">
+    <h2>{{ 'Skip to Main Content'|t }}</h2>
+  </a>
+
   {% if page_top %}
     {{ page_top }}
   {% endif %}

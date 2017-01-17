@@ -29,7 +29,6 @@ regions:
   sidebar_second: 'Sidebar Second'
   footer: 'Footer'
 
-# Information added by Drupal.org packaging script on 2016-03-18
 version: '8.x-1.0'
 core: '8.x'
 project: 'tofu'
