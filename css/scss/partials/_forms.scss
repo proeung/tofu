@@ -1,3 +1,79 @@
 /********************
 ** Forms
 ********************/
+
+form {
+	.input {
+		display: inline-block;
+	}
+	input[type=text],
+	input[type=password],
+	input[type=email],
+	input[type="submit"],
+  input[type="date"] {
+		border-radius: 0;
+    @include ui-appearance(none);
+
+    @include placeholder {
+      color: $c-text;
+      font-weight: 500;
+      display: block;
+    }
+    
+	}
+	input[type='text'],
+	input[type='email'],
+	input[type='password'],
+  input[type='date'],
+	textarea {
+		outline: none;
+    border: 3px solid $c-secondary;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 0;
+    font-weight: 500;
+    @include font-size(14);
+  	@include bp(medium) {
+  		padding: 20px;
+    		@include font-size(16);
+  	}
+	}
+	textarea {
+	  width: 100%;
+	}
+	input[type='text']:hover,
+	input[type='email']:hover,
+	input[type='password']:hover,
+	textarea:hover { }
+
+	input[type='text']:focus,
+	input[type='email']:focus,
+	input[type='password']:focus,
+  input[type='date']:focus,
+	textarea:focus {
+		outline: none;
+	  outline: 0;
+    border-color: $c-secondary;
+    position: relative;
+    z-index: 99;
+	}
+}
+
+/********************
+** Admin Tabs
+********************/
+
+ul.tabs.primary {
+	list-style: none;
+	li {
+		display: inline-block;
+		a {
+			padding: 8px 10px;
+			border: 2px solid $c-secondary;
+			&:hover {
+				color: $c-white;
+				background-color: $c-secondary;
+			}
+		}
+	}
+}
