@@ -153,6 +153,29 @@ function tofu_preprocess_image(&$variables) {
 }
 
 /**
+ * Implements preprocess_responsive_image.
+ * @param array $variables
+ */
+
+function tofu_preprocess_responsive_image(&$variables) {
+
+  if (isset($variables['attributes'])) {
+    $variables['attributes']['class'] = 'lazyload';
+
+    if (isset($variables['attributes']['alt'])) {
+      $variables['img_element']['#alt'] = $variables['attributes']['alt'];
+      unset($variables['attributes']['alt']);
+    }
+    if (isset($variables['attributes']['title'])) {
+      $variables['img_element']['#title'] = $variables['attributes']['title'];
+      unset($variables['attributes']['title']);
+    }
+    $variables['img_element']['#attributes'] = $variables['attributes'];
+  }
+
+}
+
+/**
  * Implements form_alter.
  * @param array $variables
  */
