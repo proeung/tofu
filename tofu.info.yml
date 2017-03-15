@@ -24,6 +24,7 @@ regions:
   highlighted: 'Highlighted'
   featured: 'Featured'
   admin_tabs: 'Admin Tabs'
+  messages: 'Admin Messages'
   content: 'Content'
   sidebar_first: 'Sidebar First'
   sidebar_second: 'Sidebar Second'
