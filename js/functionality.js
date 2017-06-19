@@ -75,6 +75,10 @@
     jQuery(window).load(function () {
     });
 
+    /********************
+     ** jQuery Window Scroll
+     ********************/
+
     jQuery(window).scroll(function () {
     });
 

@@ -117,10 +117,13 @@ function tofu_theme_suggestions_block_alter(&$suggestions, $variables) {
  */
 
 function tofu_preprocess_image(&$variables) {
+
   if (!empty($variables['uri'])) {
-    $variables['attributes']['class'] = 'b-lazy';
-    $variables['attributes']['src'] = '/' . drupal_get_path('theme','tofu') . '/images/loaders/placeholder.gif';
-    $variables['attributes']['data-src'] = file_url_transform_relative(file_create_url($variables['uri']));
+    if (!isset($variables['attributes']['class']) || !in_array('lazyload', $variables['attributes']['class'])) {
+      $variables['attributes']['class'] = 'b-lazy';
+      $variables['attributes']['src'] = '/' . drupal_get_path('theme','tofu') . '/images/loaders/placeholder.gif';
+      $variables['attributes']['data-src'] = file_url_transform_relative(file_create_url($variables['uri']));
+    }
   }
   // Generate a srcset attribute conforming to the spec at
   // http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#attr-img-srcset
@@ -150,6 +153,7 @@ function tofu_preprocess_image(&$variables) {
       $variables['attributes'][$key] = $variables[$key];
     }
   }
+
 }
 
 /**
