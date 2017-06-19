@@ -10,25 +10,25 @@
 
   {% if page.breadcrumb %}
     <section id="breadcrumb">
-      <div class="l-container-xlg">
+      <div class="l-container--xlg">
         {{ page.breadcrumb }}
       </div>
     </section>
   {% endif %}
 
   {% if logged_in and page.admin_tabs %}
-    <section id="admin-tabs" class="l-container-md">
+    <section id="admin-tabs" class="l-container--md">
       {{ page.admin_tabs }}
     </section>
   {% endif %}
 
   {% if logged_in and page.messages %}
-    <section id="messages" class="l-container-md">
+    <section id="messages" class="l-container--md">
       {{ page.messages }}
     </section>
   {% endif %}
 
-  <main role="main" class="l-container-xlg">
+  <main role="main" class="l-container--xlg">
     {% if page.sidebar_first %}
       <aside id="sidebar-first" role="complementary" class="sidebar">
         {{ page.sidebar_first }}

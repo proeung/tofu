@@ -28,7 +28,6 @@ $f-base:					"Helvetica", Arial, Lucida Grande, sans-serif;
 
 $f-primary:				$f-base;
 $f-secondary:			Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-
 $f-icons:					"icons";
 
 
@@ -50,17 +49,16 @@ $c-navy:					#084c87;
 
 $c-light-blue:		#e1eaef;
 
+
 /********************
 ** Paths
 ********************/
 
 $p-images:				'../images/';
 
+
 /********************
-** Images
+** Transition Timing Functions
 ********************/
 
-/*
-	Example:
-	$i-headerBg: $p-images + 'header-bg.png';
-*/
+$cubic-bezier: cubic-bezier(0.550, 0.085, 0.000, 0.990);

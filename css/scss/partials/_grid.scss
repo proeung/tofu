@@ -1,5 +1,5 @@
 /********************
-** Grid
+** CSS Grid
 ********************/
 
 .l-faux-table {
@@ -152,5 +152,196 @@
       float: none;
       vertical-align: top;
     }
+  }
+}
+
+/********************
+** Grid Gaps
+********************/
+
+.gap--sm {
+  padding-right: 30px;
+}
+
+.gap--md {
+  @include bp(small){
+    padding-right: 55px;
+  }
+}
+
+/********************
+** Grid
+********************/
+
+ul.normal-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+    .f--desc {
+      @include bp(xlarge){
+        width: 90%;
+      }
+    }
+  }
+}
+
+/********************
+** Flex Grid
+********************/
+
+ul.flex-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flex-grid {
+  display: block;
+  @include bp(small) {
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+  }
+
+  &.gutter--sm {
+    .col-item {
+      margin-bottom: 4px;
+    }
+    @include bp(small) {
+      margin-left: -2.5px;
+      .col-item {
+        margin: 2.5px;
+      }
+    }
+  }
+  &.gutter--md {
+    margin-left: -15px;
+    .col-item {
+      margin: 15px;
+    }
+  }
+
+  &.cols--3 {
+    .col-item {
+      @include bp(small) {
+        width: 33.333%;
+      }
+    }
+  }
+  &.cols--4 {
+    .col-item {
+      @include bp(small) {
+        width: 25%;
+      }
+    }
+  }
+  &.cols--3, &.cols--4 {
+    margin: -10px;
+    @include bp(medium) {
+      margin: -20px;
+    }
+    .col-item {
+      padding: 10px;
+      @include bp(medium) {
+        padding: 20px;
+      }
+    }
+  }
+
+}
+
+.style-col-4 {
+  .flex-grid {
+    &.cols--3 {
+      .col-item {
+        @include bp(small) {
+          width: 33.333%;
+        }
+        @include bp(large) {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+.col-flex--1 {
+  flex: 1;
+}
+
+.col-flex--2 {
+  flex: 2;
+}
+
+.col-flex--2-half {
+  flex: 2.5;
+}
+
+.col-flex--3 {
+  flex: 3;
+}
+
+.flex-align--center {
+  align-items: center;
+  text-align: center;
+}
+
+.flex-align--flex-start {
+  align-items: flex-start;
+}
+
+.flex-align--flex-end {
+  align-items: flex-end;
+}
+
+/********************
+** Masonry Column
+********************/
+
+.column-grid {
+  width: 100%;
+  max-width: none;
+  vertical-align: top;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: -40px;
+  column-gap: 20px;
+  @include bp(small) {
+    column-gap: 40px;
+  }
+  
+  &.cols--2 {
+    columns: 2;
+  }
+  &.cols--3 {
+    columns: 2;
+    @include bp(small) {
+      columns: 3;
+    }
+  }
+  &.cols--4 {
+    columns: 2;
+    @include bp(small) {
+      columns: 4;
+    }
+  }
+  .col-item {
+    break-inside: avoid-column;
+    -webkit-backface-visibility: hidden;
+    -webkit-column-break-inside: avoid;
+    padding-bottom: 35px;
+    @include bp(small) {
+      padding-bottom: 25px; 
+    }  
+    @include bp(medium) {
+      padding-bottom: 45px;      
+    }
+
   }
 }

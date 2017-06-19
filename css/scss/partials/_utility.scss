@@ -4,65 +4,11 @@
 
 .element-invisible {
   position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
-}
-
-.element-invisible.element-focusable:active,
-.element-invisible.element-focusable:focus {
-  position: static !important;
-  clip: auto;
-}
-
-.u-centered-text {
-  text-align: center;
-}
-
-.u-circular {
-  border-radius: 100%;
-}
-
-.u-hidden {
-  visibility: hidden;
-}
-
-.u-inline {
-  display: inline;
-}
-
-.u-inline-block {
-  display: inline-block;
-}
-
-.u-no-bottom-margin {
-  margin-bottom: 0;
-}
-
-.u-no-bottom-padding {
-  padding-bottom: 0;
-}
-
-.u-no-side-padding {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.u-normal-weight {
-  font-weight: normal;
-}
-
-.u-offscreen {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-
-.u-relative {
-  position: relative;
-}
-
-.u-undisplayed {
-  display: none;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
 }
 
 .u-faux-table {
@@ -71,23 +17,41 @@
   height: 100%;
 }
 
-.u-faux-table-align-middle {
+.u-faux-table--align-middle {
   display: table-cell;
   vertical-align: middle !important;
 }
 
-.u-faux-table-align-bottom {
+.u-faux-table--align-bottom {
   display: table-cell;
   vertical-align: bottom;
 }
 
+.align--left {
+  float: left;
+}
+
+.align--right {
+  float: right;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+.text-align--right {
+  text-align: right;
+}
+
+.text-align--left {
+  text-align: left;
+}
+
 .cf {
   *zoom: 1;
-
   &:after {
     clear: both;
   }
-
   &:before, &:after {
     content: " ";
     display: table;
@@ -117,17 +81,17 @@
 ** bLazy load
 *****************************/
 
-.b-lazy {
+.b-lazy, .lazysizes {
   max-width: 100%;
   opacity: 0;
-  transition: opacity 600ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
-  &.b-loaded, &.loaded {
+  transition: opacity 600ms $cubic-bezier;
+  &.b-loaded, &.loaded, &.lazyloaded {
     opacity: 1;
   }
 }
 
 .no-js {
-  .b-lazy, .lazyload {
+  .b-lazy, .lazyload, .lazysizes {
     opacity: 1;
   }
 }
