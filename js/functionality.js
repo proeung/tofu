@@ -72,15 +72,13 @@
      ** jQuery Window Load
      ********************/
 
-    jQuery(window).load(function () {
-    });
+    jQuery(window).on('load', function(){ });
 
     /********************
      ** jQuery Window Scroll
      ********************/
 
-    jQuery(window).scroll(function () {
-    });
+    jQuery(window).on('scroll', function(){ });
 
     /********************
      ** jQuery DOM Ready
