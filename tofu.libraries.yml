@@ -2,8 +2,8 @@ global-css:
   version: 1.0
   css:
     theme:
-      css/style.css: {}
-      css/ie.css: { browsers: { IE: 'lte IE 9', '!IE': false } }
+      dist/css/style.css: {}
+      dist/css/ie.css: { browsers: { IE: 'lte IE 9', '!IE': false } }
 global-js:
   version: 1.0
   js:
